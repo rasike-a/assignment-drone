@@ -31,4 +31,6 @@ Get Loaded Items : get(getLoadedItems) - localhost:5000/api/dispatch/{:id}
 
 # Scheduling - node-schedule is used to do the recursive jobs
 
-# File Upload - express file upload is used to upload files. saved in /uploads/{code}/{image-name}.{image-extension}
+# File Upload - express file upload is used to upload files. saved in /uploads/{code}/{image-name}.{image-extension} Max size limot to 4 MB
+
+# Unit test - Unable to get up and running due to jest is not still supporting ES6 syntax (I have added few more scenarios to Postman collection to cover the validation scenarios)

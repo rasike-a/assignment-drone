@@ -5,6 +5,7 @@ import Dispatch from "../models/dispatch.js";
 import Drone from "../models/drone.js";
 import Medication from "../models/medication.js";
 
+//Get available drones
 const getAvailableDrones = async (req, res, next) => {
   try {
     const drones = await Drone.find({ state: "IDLE" }).exec();
@@ -24,6 +25,7 @@ const getAvailableDrones = async (req, res, next) => {
   }
 };
 
+//Add medications to a given drone
 const loadDrone = async (req, res, next) => {
   const errors = validationResult(req);
 
@@ -84,6 +86,7 @@ const loadDrone = async (req, res, next) => {
   }
 };
 
+//Get loaded medications data for a given drone
 const getLoadedItems = async (req, res, next) => {
   const droneId = req.params.id;
 
