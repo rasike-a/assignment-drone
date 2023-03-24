@@ -10,7 +10,7 @@ const droneSchema = new Schema(
       max: 100,
     },
     weightLimit: {
-      type: String,
+      type: Number,
       required: true,
     },
     model: {

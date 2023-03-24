@@ -5,7 +5,6 @@ import {
   getAvailableDrones,
   loadDrone,
   getLoadedItems,
-  getDroneBatteryLevel,
 } from "../controllers/dispatchController.js";
 
 router.route("/:id").post(loadDrone);
