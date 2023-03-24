@@ -11,6 +11,5 @@ import {
 router.route("/:id").post(loadDrone);
 router.route("/").get(getAvailableDrones);
 router.route("/:id").get(getLoadedItems);
-router.route("/:id/battery").get(getDroneBatteryLevel);
 
 export default router;

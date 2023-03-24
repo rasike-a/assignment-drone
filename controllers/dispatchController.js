@@ -1,5 +1,4 @@
 import { validationResult } from "express-validator";
-//import { ObjectId } from "mongoose";
 import mongoose from "mongoose";
 
 import Dispatch from "../models/dispatch.js";
@@ -46,29 +45,11 @@ const loadDrone = async (req, res, next) => {
     });
   }
 
-  // let ObjectId = mongoose.Types.ObjectId;
-
-  let objId = mongoose.mongo.BSON.ObjectId.createFromHexString(
-    "641c04c2d1120c8149fd6e0b"
-  );
-
-  console.log(objId);
-
-  // const orderItemIdAsObjects = orderItems.map((id) => {
-  //   let obj = new ObjectId(id.toString());
-  //   console.log(id, obj);
-  //   return obj;
-  // });
-
-  console.log(orderItemIds);
   let items = orderItemIds.map((id) =>
     mongoose.mongo.BSON.ObjectId.createFromHexString(id)
   );
 
   const orderItems = await Medication.find({ _id: { $in: items } });
-
-  console.log(orderItems);
-
   const medicationWeightSum = orderItems.reduce((s, c) => s + c.weight, 0);
 
   console.log(medicationWeightSum);
@@ -136,26 +117,4 @@ const getLoadedItems = async (req, res, next) => {
   }
 };
 
-const getDroneBatteryLevel = function (req, res, next) {
-  const productId = req.params.productId;
-  Product.findById(productId)
-    .then((product) => {
-      if (!product) {
-        const error = new Error("Could not find the product.");
-        error.statusCode = 404;
-        throw error;
-      }
-
-      res.status(200).json({ message: "Product found.", content: product });
-    })
-    .catch((err) => {
-      if (!err.statusCode) {
-        err.statusCode = 500;
-      }
-      next(err);
-    });
-};
-
-export { getAvailableDrones, getDroneBatteryLevel, getLoadedItems, loadDrone };
-
-//mongodb+srv://rasike123:<password>@rasike-pvt.jhsph.mongodb.net/test
+export { getAvailableDrones, getLoadedItems, loadDrone };
