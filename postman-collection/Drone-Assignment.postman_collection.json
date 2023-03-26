@@ -1,0 +1,433 @@
+{
+	"info": {
+		"_postman_id": "d7de15f3-5c7c-456f-8c7e-adabc6353e68",
+		"name": "Drone-Assignment",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "5278522"
+	},
+	"item": [
+		{
+			"name": "drone-create (success)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serialNumber\" : \"1222222233344\",\r\n    \"weightLimit\" : 500,\r\n    \"model\": \"Lightweight\",\r\n    \"batteryCapacity\" : 100,\r\n    \"state\" : \"IDLE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/drone",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"drone"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "drone-create-validations (wrong model type)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serialNumber\" : \"1222232333333344\",\r\n    \"weightLimit\" : 500,\r\n    \"model\": \"ABC\",\r\n    \"batteryCapacity\" : 100,\r\n    \"state\" : \"IDLE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/drone",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"drone"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "drone-create-validations (wrong state)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"serialNumber\" : \"1222232333333344\",\r\n    \"weightLimit\" : 500,\r\n    \"model\": \"ABC\",\r\n    \"batteryCapacity\" : 100,\r\n    \"state\" : \"IDLE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/drone",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"drone"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "drones-list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/drone/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"drone",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-drone-by-id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/drone/6419e8bde899b600420a5447",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"drone",
+						"6419e8bde899b600420a5447"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-available-drones",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/dispatch/",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"dispatch",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "load-drone",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"orderItemIds\" : [\r\n           \"641c04c2d1120c8149fd6e0b\",\r\n           \"641c081264e1c20ba2cb238f\"\r\n       ],           \r\n    \"deliveryLocation\" : {\r\n        \"long\" : \"1111111\",\r\n        \"lat\" : \"12121222\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/dispatch/6419e8bde899b600420a5447",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"dispatch",
+						"6419e8bde899b600420a5447"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-loaded-medications",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/dispatch/6419e8bde899b600420a5447",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"dispatch",
+						"6419e8bde899b600420a5447"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-drone-battery-level",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:5000/api/drone/6419e8bde899b600420a5447/battery",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"drone",
+						"6419e8bde899b600420a5447",
+						"battery"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update-drone-state",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"state\" : \"DELIVERED\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:5000/api/drone/6419e8bde899b600420a5447/state",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"drone",
+						"6419e8bde899b600420a5447",
+						"state"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-medication",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "medicaiton-abaceeee",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "AAAAAA",
+							"type": "text"
+						},
+						{
+							"key": "weight",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/C:/Users/raaalk/OneDrive - IFS/Pictures/alone.jfif"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/api/medication",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"medication"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get-medication-list",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "medicaiton-abaceeee",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "AAAAAA",
+							"type": "text"
+						},
+						{
+							"key": "weight",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/C:/Users/raaalk/OneDrive - IFS/Pictures/alone.jfif"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/api/medication",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"medication"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-medication-validations (wrong characters for name)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "medicaiton-ab@$",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "AAAAAA",
+							"type": "text"
+						},
+						{
+							"key": "weight",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/C:/Users/raaalk/OneDrive - IFS/Pictures/alone.jfif"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/api/medication",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"medication"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add-medication-validations (wrong characters for code)",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "name",
+							"value": "medicaiton-abcdef",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "AAAAAAbbb",
+							"type": "text"
+						},
+						{
+							"key": "weight",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "photo",
+							"type": "file",
+							"src": "/C:/Users/raaalk/OneDrive - IFS/Pictures/images.jfif"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:5000/api/medication",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"medication"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
