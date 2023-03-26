@@ -7,9 +7,9 @@ const medicationSchema = new Schema(
       type: String,
       validate: {
         validator: function (v) {
-          return /([A-Za-z0-9\-\_]+)/.test(v);
+          return /^[a-zA-Z0-9_-]+$/.test(v);
         },
-        message: "{VALUE} is not a valid name!",
+        message: (props) => `${props.value} is not a valid name!`,
       },
       required: [true, "Name required"],
     },
@@ -21,9 +21,9 @@ const medicationSchema = new Schema(
       type: String,
       validate: {
         validator: function (v) {
-          return /([A-Z0-9\_]+)/.test(v);
+          return /^[A-Z0-9_]+$/.test(v);
         },
-        message: "{VALUE} is not a valid code!",
+        message: (props) => `${props.value} is not a valid code!`,
       },
       required: [true, "Code required"],
     },
